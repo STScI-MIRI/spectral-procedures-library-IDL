@@ -1,0 +1,179 @@
+basic input output routines
+
+readfits - reads a spectral FITS file - part of IDL astro library
+wr_spfits.pro - writes a spectrum to a spectral FITS file
+
+additional routines to read data
+
+rd_cassis_tbl.pro - reads a Cassis spectrum in IPAC table format
+                    preferred to rd_sptbl.pro for Cassis files
+rd_spfits.pro - reads a spectral FITS file
+rd_sptbl.pro - reads a spectrum in IPAC table format
+rd_yarfits.pro - reads a spectrum in YAAAR FITS format (ie SMART or ISAP files)
+
+basic plotting routines
+
+spplot.pro - plots a spectrum, with each order (segment) plotted separately
+speplot.pro - plots error bars on a pre-existing spectral plot
+sp2gplot.pro - overplots 2 Gaussians
+spgplot.pro - plots a spectrum and a Gaussian
+spplotbat.pro - interactively plots a list of spectra
+
+basic spectral arithmetic
+
+spadd.pro - adds or subtracts a scalar or spectrum to/from another spectrum
+spcut.pro - cuts a spectrum (or segment) to a specified wavelength range
+spdivide.pro - divides one spectrum by a scalar or another spectrum
+sptimes.pro - multiplies a spectrum by a scalar or another spectrum
+
+basic spectral functions
+
+spavg.pro - finds the average flux density in a spectrum between two wavelengths
+spbob.pro - removes 1 pixel from each end of each order of a spectrum
+spint.pro - integrates a spectrum over a specified wavelength range
+spmax.pro - returns max flux density between two wavelengths
+spmin.pro - returns min flux density between two wavelengths
+sporder.pro - returns the specified order (segment) of a spectrum
+spreplace.pro - replaces a wavelength element with given values
+spsort.pro - sorts a spectrum by wavelength
+spspot.pro - estimates the flux density in a spectrum at a given wavelength
+spsum.pro - integrates a spectrum between input wavelengths
+sptrim.pro - trims a spectrum by removing data outside given wavelengths
+spzap.pro - removes spectral data between given wavelengths
+spzero.pro - zeroes spectral data inside or outside given wavelength range
+
+more advanced spectral routines
+
+spconvolve.pro - convolves a spectrum with a Gaussian
+splamshift.pro - shifts wavelength grid additively
+splsm.pro - smooths a spectrum using a cubic spline
+spmedsmooth.pro - boxcar-smooths a spectrum using median instead of mean
+spnorm.pro - normalizes a spectrum by a series of scalars (one per segment)
+sprectify.pro - straighten a spectrum with a polynomial
+sprj.pro - shifts a spectrum from F_nu to Rayleigh-Jeans units
+sprjout.pro - shifts a spectrum from Rayleigh-Jeans to F_nu units
+sprmfeature.pro - replaces a feature with a polynomial fitted to continuum
+spscale.pro - returns scaling factor to normalize one spectrum to another
+spsmooth.pro - boxcar-smooths a spectrum
+spspike.pro - identifies and removes spikes in a spectrum, based on sppair.pro
+spz.pro - redshifts a spectrum
+
+function generation
+
+spdrude.pro - generates a Drude profile on a given wavelength grid
+spfringe.pro - generates a fringing pattern on a given wavelength grid
+spgauss.pro - generates a Gaussian on a given wavelength grid
+spengelke.pro - generates an Engelke f'n on a given wavelength grid
+splorentzian.pro - generates a Lorentzian on a given wavelength grid
+spplanck.pro - generates a Planck f'n in F_nu units on a given wavelength grid
+spplanckl.pro - generates a Planck f'n in F_lam units on a given wavelength grid
+
+combining routines
+
+spcombine.pro - combines two spectra using splines
+spfit.pro - fits (normalizes) one spectrum to another
+spmean.pro - averages 2 spectra on same wavelength grid
+spmorph.pro - morphs one spectrum to the shape of another
+sppair.pro - combine two spectra on a common grid, eliminating spikes in each
+spvmax.pro - returns the maximum value of two spectra at each wavelength
+spvmin.pro - returns the minimum value of two spectra at each wavelength
+spzip.pro - combines two spectra, accounting for different shapes
+
+fitting routines
+
+spchisq.pro - finds the summed chi-squared error in a wavelength range
+spcont.pro - fits a polynomial continuum to two wavelength ranges in a spectrum
+spcontp.pro - fits a Planck function to a spectrum
+spfitlines.pro - fits multiple line segments to selected regions of a spectrum
+spgaussfit.pro - fits a Gaussian to a region in a spectrum
+sppoly.pro - fits a polynomial to selected regions of a spectrum
+spspline.pro - fits a spline to a spectrum at selected wavelengths
+spstar.pro - fits a stellar continuum (Plank or Engelke f'n) to a spectrum
+
+regridding routines
+
+spdowngrid.pro - regrids a high-resolution spectrum to a lower-resolution grid
+spgridlo.pro - regrids a spectrum from high to low resolution
+spgridres.pro - modified spgridlo.pro with resolution a f'n of wavelength
+spgridspline.pro - uses cspline routine to regrid a spectrum
+spregrid.pro - regrids a spectrum with splines based on the integral of the flux
+sptem.pro - regrids a spectral template to match another spectrum
+
+routines to extract spectral features
+
+spcex.pro - finds continuum and measures the strength of a feature in a spectrum
+spex.pro - measures the strength of a feature given a spectrum and continuum
+
+synthetic photometry, colors, and bolometric magnitudes
+
+spbolo.pro - integrates a spectrum from zero to infinity (with extrapolation)
+spcolor.pro - computes the color of a spectrum in two wavelength ranges
+spphot.pro - performs synthetic photometry on a spectrum
+spphotab.pro - as spphot.pro, but for AB magnitudes
+
+routines involving dust
+
+spavcorrect.pro - corrects a spectrum for extinction
+spdust.pro - fits a Planck or Engelke f'n to a spectrum, returns the difference
+spshells.pro - generates an emission spectrum from a series of dust shells
+
+file wrappers, other wrappers, file-specific routines
+
+spcoadd.pro - coadds a list of spectral FITS files, returns the result
+spfadd.pro - file wrapper for spadd.pro
+spfcoadd.pro - as spcoadd.pro, but writes coadded spectrum to disk
+spfdivide.pro - file wrapper for spdivide.pro
+spfgridres.pro - file wrapper for spgridres.pro
+spfixgrid.pro - wrapper for sporegrid.pro, only regrids if necessary
+spfjdbat.pro - prints MJD_OBS keyword from headers of a list of FITS files
+spfjoin.pro - joins (concatenates) 2 spectral FITS files, writes output to disk
+spfmean.pro - file wrapper for spmean.pro
+spfmedsmooth.pro - file wrapper for spmedsmooth.pro
+spfnodjoin.pro - combines 4 spectral FITS files (2 nods, 2 orders)
+spfnod.pro - combines 2 spectral FITS files on same wavelength grid
+spfnorm.pro - file wrapper for spnorm.pro
+spfpair.pro - file wrapper for sppair.pro
+spfplot.pro - file wrapper for spplot.pro (i.e. plots directly from FITS file)
+spfposbat.pro - wrapper for spfpos.pro
+spfpos.pro - finds extracted RA and DEC of a source in a spectral FITS file
+spfse.pro - file wrapper for spse.pro
+spfspot.pro - file wrapper for spspot.pro
+spfsum.pro - file wrapper for spsum.pro
+spftimes.pro - file wrapper for sptimes.pro
+spftrim.pro - file wrapper for sptrim.pro
+spfzap.pro - file wrapper for spzap.pro
+sporegrid.pro - wrapper for spregrid
+
+specialized or less commonly used routines
+
+spmeanlist.pro - returns the mean or median of a list of spectra
+spnoise.pro - computes uncertainties in a spectrum by comparing neighbors
+spoverplot.pro - plots a series of spectra in one plot
+sppeak.pro - find wavelength of maximum flux density in a spectrum
+spposstack.pro - averages RA and DEC for each source in output from spfposbat
+spprfit.pro - fits a Jura model Poynting-Robertson dust distribution
+spsc.pro - analyzes silicate emission, designed for IRAS/LRS data
+spse.pro - analyzes silicate emission as per Sloan & Price (1995, 1998)
+spstackbat.pro - normalizes a list of spectra, by segment, writes to disk
+sptfit.pro - fits a temperature to a spectrum using a Planck or Engelke f'n
+
+outdated
+
+rd_spfits_2.2.pro - outdated version of rd_spfits.pro
+rd_spfits2.3x.pro - outdated version of rd_spfits.pro
+spcexw.pro - outmoded version of spcew.pro, only finds equiv. widths
+spclean.pro - cleans spikes in a spectrum - missing routine fixspikes.pro
+spcoaddbat.pro - outmoded version of spfcoadd.pro
+spcombine_v1.pro - outmoded version of spcombine_v1.pro
+spcompare.pro - compares a spectrum to a Planck or Engelke function
+spcsmooth.pro - experimental wrapper for spsmooth.pro
+speqf.pro - outmoded version of spex to measure equiv. flux of a feature
+spexw.pro - outmoded version of spex to measure equiv. width of a feature
+spfjoin_v1.pro - outmoded version of spfjoin.pro
+spfjoin_v2.pro - outmoded version of spfjoin.pro
+spgtest.pro - test code for spgridres.pro
+spjoin.pro - joins (concatenates) two spectral FITS files, writes to disk
+spsebat.pro - incomplete
+spstackbat_o.pro - outmoded version of spstackbat.pro
+sptest.pro - test code for spzip.pro
+spzip_smart.pro - basis for spzip.pro, code written by V. Lebouteiller
