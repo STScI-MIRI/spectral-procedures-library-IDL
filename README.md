@@ -58,20 +58,20 @@ standard IDL Astronomy Users Library.  The procedure mrdfits.pro will also
 work.
 
 Spectral FITS files often contain in their headers the following keywords:
-  NSEG - which defines the number of spectral segments;
-  NSEG01 (etc.) - the number of wavelength elements in a given segment;
-  COL00DEF (etc.) - defines the columns, with the following standard names:
-    wavelength, flux, flux_error, order (or segment).
+* NSEG - which defines the number of spectral segments;
+* NSEG01 (etc.) - the number of wavelength elements in a given segment;
+* COL00DEF (etc.) - defines the columns, with the following standard names:
+  wavelength, flux, flux_error, order (or segment).
 These are required, but if they are present, then the optional procedure
 sp_rdfits.pro can be used to read them in.  (As of 2020 April 1, this
 routine still has bugs and should be used with caution.)
 
 If the data are stored in IPAC table files, the following column headers
 are required:
-  wavelength - assumed units are microns
-  flux - actually flux density; assumed units are Jy
-  error - same units as flux
-  order - with unique identifiers for each spectral order or segment
+* wavelength - assumed units are microns
+* flux - actually flux density; assumed units are Jy
+* error - same units as flux
+* order - with unique identifiers for each spectral order or segment
 SP data stored in IPAC table files should be read with rd_sptbl.pro.
 It has keywords to warn it to expect optional column headers for 
 error and order.
