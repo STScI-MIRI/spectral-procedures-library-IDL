@@ -20,7 +20,7 @@ two-dimensional array.  Each row of the image is one wavelength element, with
 the columns defined as follows:
 * column 0 - wavelength (assumed units are microns)
 * column 1 - flux density (Jy)
-* column 2 - uncertainty in flux censity (Jy)
+* column 2 - uncertainty in flux density (Jy)
 * column 3 - segment or order identifier
 
 Additional columns may also be present, but are not used by these tools.
@@ -44,7 +44,7 @@ Spitzer/IRS data:
 * Thus spectra with SH and LH combined contain 20 orders.
 
 Whatever the source of the data, as long as column 0 is wavelength, 
-column 1 is flux density, and column 2 uses a unique integer identifier to 
+column 1 is flux density, and column 3 uses a unique integer identifier to 
 distinguish each segment or order, the SP tools will handle the data.
 
 Storing, reading, and writing SP data
